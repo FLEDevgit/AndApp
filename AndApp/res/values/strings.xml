@@ -3,6 +3,6 @@
 
     <string name="app_name">AndApp</string>
     <string name="action_settings">Settings</string>
-	<string name="hello_world_widget">Bonjor le moude</string>
+	<string name="widget_titre">Combien de dodo</string>
 	<color name="light_blue">#AA98AFC7</color>
 </resources>
