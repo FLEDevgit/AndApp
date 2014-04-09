@@ -24,7 +24,7 @@
         android:textSize="15sp" />
 
     <TabHost
-        android:id="@android:string/widget_tab1_titre"
+        android:id="@android:id/widget_tab1_titre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="28dp"
