@@ -24,10 +24,16 @@ public final class R {
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int fond=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0000;
+        public static final int action_settings=0x7f0a0005;
+        public static final int il_reste=0x7f0a0003;
+        public static final int image_fond=0x7f0a0001;
+        public static final int layout_compteur=0x7f0a0002;
+        public static final int nombre_dodos=0x7f0a0004;
+        public static final int widget_contener=0x7f0a0000;
     }
     public static final class layout {
         public static final int activity_cbdd=0x7f030000;
@@ -38,7 +44,9 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
-        public static final int click=0x7f060003;
+        public static final int click=0x7f060005;
+        public static final int libelle_reste=0x7f060003;
+        public static final int nombre_dodos=0x7f060004;
         public static final int widget_titre=0x7f060002;
     }
     public static final class style {
