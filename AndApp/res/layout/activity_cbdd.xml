@@ -28,7 +28,8 @@
             android:layout_height="wrap_content"
             android:text="@string/libelle_reste"
             android:textColor="#ffffff"
-            android:textSize="14sp" />
+            android:textSize="14sp" 
+            />
         
        	<TextView
 			android:id="@+id/nombre_dodos"
