@@ -1,70 +1,52 @@
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/AbsoluteLayout1"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_gravity="top"
-    android:background="@color/light_blue" >
+    android:background="#fff"
+    android:orientation="vertical" 
+    >
 
     <TextView
-        android:id="@+id/hello_world_widget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dip"
-        android:text="@string/widget_titre"
-        android:textColor="#FFF" />
+        android:text="@string/widget_titre" 
+        android:textColor="#555555"
+        android:layout_gravity="center_horizontal" />
 
     <Button
-        android:id="@+id/button"
-        style="@style/AppTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="195dp"
-        android:layout_y="296dp"
-        android:text="@string/add_date"
-        android:textSize="15sp" />
+        android:text="@string/click" 
+        android:textColor="#555555"
+        android:layout_gravity="center_horizontal" />
 
-    <TabHost
-        android:id="@android:id/widget_tab1_titre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="28dp"
-        android:layout_y="43dp" >
+</LinearLayout>
+<!-- <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" -->
+<!-- android:id="@+id/AbsoluteLayout1" -->
+<!-- android:layout_width="fill_parent" -->
+<!-- android:layout_height="fill_parent" -->
+<!-- android:layout_gravity="top" -->
+<!-- android:background="@color/light_blue" > -->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
 
-            <TabWidget
-                android:id="@android:id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-            </TabWidget>
+<!-- <TextView -->
+<!-- android:id="@+id/hello_world_widget" -->
+<!-- android:layout_width="wrap_content" -->
+<!-- android:layout_height="wrap_content" -->
+<!-- android:padding="10dip" -->
+<!-- android:text="@string/widget_titre" -->
+<!-- android:textColor="#FFF" /> -->
 
-            <FrameLayout
-                android:id="@android:id/tabcontent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
 
-                <LinearLayout
-                    android:id="@+id/tab1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-                </LinearLayout>
+<!-- </AbsoluteLayout> -->
 
-                <LinearLayout
-                    android:id="@+id/tab2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-                </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/tab3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-                </LinearLayout>
-            </FrameLayout>
-        </LinearLayout>
-    </TabHost>
+<!-- <Button -->
+<!-- android:id="@+id/button" -->
+<!-- style="@style/AppTheme" -->
+<!-- android:layout_width="wrap_content" -->
+<!-- android:layout_height="wrap_content" -->
+<!-- android:layout_alignParentRight="true" -->
+<!-- android:layout_alignParentTop="true" -->
+<!-- android:text="@string/add_date" -->
+<!-- android:textSize="15sp" /> -->
 
-</AbsoluteLayout>
