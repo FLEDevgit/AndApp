@@ -3,18 +3,24 @@
     android:layout_width="80dp"
     android:layout_height="80dp"
     android:orientation="vertical"
-    android:paddingBottom="8dp"
-    android:paddingLeft="8dp"
-    android:paddingRight="8dp"
-    android:paddingTop="8dp" 
-     android:id="@+id/widget_contener">
+    android:paddingBottom="3dp"
+    android:paddingLeft="3dp"
+    android:paddingRight="3dp"
+    android:paddingTop="3dp" 
+    android:id="@+id/widget_contener"
+    android:background="#E8E4DE"
+    android:alpha="0.9" 
+     >
 
     <ImageView
         android:id="@+id/image_fond"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:contentDescription="@string/widget_titre"
-        android:src="@drawable/fond" />
+        android:background="#cccccc"
+        android:paddingTop="2dp"
+        android:paddingLeft="2dp"
+        />
 
     <LinearLayout
         android:id="@+id/layout_compteur"
@@ -27,19 +33,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/libelle_reste"
-            android:textColor="#ffffff"
+            android:textColor="#555555"
             android:textSize="14sp" 
             />
-        
-       	<TextView
-			android:id="@+id/nombre_dodos"
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content"
-			android:text="@string/nombre_dodos"
-			android:textSize="16sp"
-		/>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/nombre_dodos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/nombre_dodos"
+        android:textSize="36sp"
+        android:color="#231f20" />
 
 </RelativeLayout>
 
