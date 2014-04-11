@@ -29,13 +29,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/il_reste"
+            android:id="@+id/TextView01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/libelle_reste"
             android:textColor="#555555"
-            android:textSize="14sp" 
-            />
+            android:textSize="14sp" />
 
     </LinearLayout>
 
@@ -47,7 +46,17 @@
         android:layout_centerVertical="true"
         android:text="@string/nombre_dodos"
         android:textSize="36sp"
-        android:color="#231f20" />
+        android:textColor="#231f20" />
+
+    <TextView
+        android:id="@+id/il_reste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/image_fond"
+        android:layout_alignRight="@+id/image_fond"
+        android:text="@string/libelle_dodos"
+        android:textColor="#555555"
+        android:textSize="14sp" />
 
 </RelativeLayout>
 

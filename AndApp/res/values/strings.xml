@@ -5,6 +5,7 @@
 	<string name="widget_titre">Combien de dodos</string>
 	<string name="libelle_reste">Il reste</string>
 	<string name="nombre_dodos">14</string>
+	<string name="libelle_dodos">dodos</string>
 	<string name="click">Click me!</string>
 	<color name="light_blue">#AA98AFC7</color>
 </resources>
