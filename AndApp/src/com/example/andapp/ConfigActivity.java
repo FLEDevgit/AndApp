@@ -1,12 +1,17 @@
 package com.example.andapp;
 
+import com.example.andapp.service.CBDDUtils;
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.DatePicker;
 
 public class ConfigActivity extends Activity {
 
@@ -21,6 +26,9 @@ public class ConfigActivity extends Activity {
 
             @Override
             public void onClick(View view) {
+            	DatePicker dp = (DatePicker) findViewById(R.id.pickerTargetDate);
+            	Log.w("", dp.getYear()+"-" +dp.getMonth()+"-"+dp.getDayOfMonth());
+            	Log.w("", "C'est dans : "+CBDDUtils.getSleepsNrToYearMonthDay(dp.getYear(),dp.getMonth(), dp.getDayOfMonth())+" dodos");
                 finish();
             }
         });
