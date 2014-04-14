@@ -1,67 +1,133 @@
-<RelativeLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="80dp"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="220dp"
     android:layout_height="80dp"
-    android:orientation="vertical"
-    android:paddingBottom="3dp"
-    android:paddingLeft="3dp"
-    android:paddingRight="3dp"
-    android:paddingTop="3dp" 
-    android:id="@+id/widget_contener"
-    android:background="#E8E4DE"
-    android:alpha="0.9" 
-     >
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="fr.flmsg.widgetsleep.WidgetSetup$PlaceholderFragment" 
+    >
+    
+	    <ImageView
+	        android:id="@+id/widget_image_background"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:contentDescription="@string/desc_background"
+	        android:src="@drawable/background" />
 
-    <ImageView
-        android:id="@+id/image_fond"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:contentDescription="@string/widget_titre"
-        android:background="#cccccc"
-        android:paddingTop="2dp"
-        android:paddingLeft="2dp"
-        />
+	    <TextView
+	        android:id="@+id/textTitre"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:paddingLeft="30dp"
+	        android:text="@string/widget_titre"
+	        android:textColor="#ffffff" 
+	        android:textSize="10sp"/>
+	    
+	    <TextView
+	        android:id="@+id/textCount"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:paddingLeft="65dp"
+	        android:text="@string/widget_count"
+	        android:textColor="#ffffff" 
+	        android:textSize="24sp"/>
+	    
+	    	    <TextView
+	        android:id="@+id/textUnite"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:paddingLeft="93dp"
+	        android:paddingTop="5dp"
+	        android:text="@string/widget_unite"
+	        android:textColor="#ffffff" 
+	        android:textSize="14sp"/>
 
-    <LinearLayout
-        android:id="@+id/layout_compteur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/TextView01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/libelle_reste"
-            android:textColor="#555555"
-            android:textSize="14sp" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/nombre_dodos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/nombre_dodos"
-        android:textSize="36sp"
-        android:textColor="#231f20" />
-
-    <TextView
-        android:id="@+id/il_reste"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/image_fond"
-        android:layout_alignRight="@+id/image_fond"
-        android:text="@string/libelle_dodos"
-        android:textColor="#555555"
-        android:textSize="14sp" />
-
+	    	    <TextView
+	        android:id="@+id/textBefore"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:paddingLeft="115dp"
+	        android:paddingTop="20dp"
+	        android:text="@string/widget_before"
+	        android:textColor="#ffffff" 
+	        android:textSize="10sp"/>
+	    	    
 </RelativeLayout>
 
 
 
+
+
+
+
+
+
+
+
+<!-- <RelativeLayout  -->
+<!--     xmlns:android="http://schemas.android.com/apk/res/android" -->
+<!--     android:layout_width="80dp" -->
+<!--     android:layout_height="80dp" -->
+<!--     android:orientation="vertical" -->
+<!--     android:paddingBottom="3dp" -->
+<!--     android:paddingLeft="3dp" -->
+<!--     android:paddingRight="3dp" -->
+<!--     android:paddingTop="3dp"  -->
+<!--     android:id="@+id/widget_contener" -->
+<!--     android:background="#E8E4DE" -->
+<!--     android:alpha="0.9"  -->
+<!--      > -->
+
+<!--     <ImageView -->
+<!--         android:id="@+id/image_fond" -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="fill_parent" -->
+<!--         android:contentDescription="@string/widget_titre" -->
+<!--         android:background="#cccccc" -->
+<!--         android:paddingTop="2dp" -->
+<!--         android:paddingLeft="2dp" -->
+<!--         /> -->
+
+<!--     <LinearLayout -->
+<!--         android:id="@+id/layout_compteur" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:orientation="horizontal"> -->
+
+<!--         <TextView -->
+<!--             android:id="@+id/TextView01" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:text="@string/libelle_reste" -->
+<!--             android:textColor="#555555" -->
+<!--             android:textSize="14sp" /> -->
+
+<!--     </LinearLayout> -->
+
+<!--     <TextView -->
+<!--         android:id="@+id/nombre_dodos" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_centerHorizontal="true" -->
+<!--         android:layout_centerVertical="true" -->
+<!--         android:text="@string/nombre_dodos" -->
+<!--         android:textSize="36sp" -->
+<!--         android:textColor="#231f20" /> -->
+
+<!--     <TextView -->
+<!--         android:id="@+id/il_reste" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_alignBottom="@+id/image_fond" -->
+<!--         android:layout_alignRight="@+id/image_fond" -->
+<!--         android:text="@string/libelle_dodos" -->
+<!--         android:textColor="#555555" -->
+<!--         android:textSize="14sp" /> -->
+
+<!-- </RelativeLayout> -->
 
 
 <!-- <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" -->

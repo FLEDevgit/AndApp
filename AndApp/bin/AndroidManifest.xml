@@ -8,16 +8,26 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
 
-    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name">
-		<receiver android:name=".WidgetActivity"
-			android:label="@string/app_name">
-			<intent-filter>
-				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-			</intent-filter>
-			<meta-data android:name="android.appwidget.provider"
-				android:resource="@xml/my_widget_provider" />
-		</receiver>
- 
-	</application>
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <receiver
+            android:name="com.example.andapp.WidgetActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/my_widget_provider" />
+        </receiver>
+
+        <activity
+            android:name="com.example.andapp.ConfigActivity"
+            android:label="@string/title_activity_config" >
+        </activity>
+    </application>
 
 </manifest>
