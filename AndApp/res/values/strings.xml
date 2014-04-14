@@ -8,7 +8,14 @@
     <string name="widget_before">avant les vacances!</string>
     <string name="desc_background">Combien de dodos ?</string>
     <string name="action_settings">Parametres</string>
-
+    <string name="testMSG">Test pour keumit</string>
+	<string name="click">Click me!</string>
+	<string name="title_activity_config">Event \'s settings</string>
+	<string name="label_ok">OK</string>
+	<string name="pref_event_name_hint">Event name...</string>
+	<string name="label_cancel">Cancel</string>
+    
+    
 </resources>
 
 <!-- <?xml version="1.0" encoding="utf-8"?> -->
