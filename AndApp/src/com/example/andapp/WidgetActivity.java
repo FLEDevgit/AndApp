@@ -25,7 +25,7 @@ public class WidgetActivity extends AppWidgetProvider {
 //        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 	    
-	    remoteViews.setOnClickPendingIntent(R.id.widget_contener, pendingIntent);
+	    remoteViews.setOnClickPendingIntent(R.id.widget_container, pendingIntent);
 	    appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);
 	}   
 }
