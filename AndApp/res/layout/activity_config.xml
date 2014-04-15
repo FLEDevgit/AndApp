@@ -49,7 +49,7 @@
                           android:layout_width="fill_parent"
                           android:layout_height="wrap_content">
                 <EditText
-                            android:id="@+id/editTextEventName"
+                            android:id="@+id/eventName"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/pref_event_name_hint"
