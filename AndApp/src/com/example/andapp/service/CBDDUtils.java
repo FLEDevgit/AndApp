@@ -1,14 +1,12 @@
 package com.example.andapp.service;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.Date;
 
 public class CBDDUtils {
 
-	public static Integer getSleepsNrToYearMonthDay(int year, int month, int dayOfMonth) {
-		Calendar currentCal = new GregorianCalendar();
-		Calendar eventCal = new GregorianCalendar(year,month,dayOfMonth);
-		Long gapInMillis = eventCal.getTimeInMillis()-currentCal.getTimeInMillis();
+	public static Integer getSleepsNrToYearMonthDay(long eventTimestamp) {
+		Date current = new Date();
+		Long gapInMillis = eventTimestamp - current.getTime();
 		if(gapInMillis<=0){
 			return 0;
 		}

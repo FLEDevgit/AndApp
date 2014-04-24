@@ -1,8 +1,13 @@
 package com.example.andapp;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import android.app.Activity;
+import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,12 +16,24 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
+import com.example.andapp.bean.CBDDPreferences;
+import com.example.andapp.service.PreferencesUtils;
+
 public class ConfigActivity extends Activity {
 
+	int widgetId;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        widgetId = extras.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
+
+        Intent cancelResultValue = new Intent();
+        cancelResultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
+        setResult(RESULT_CANCELED, cancelResultValue);
 		
 		
 		setContentView(R.layout.activity_config);
@@ -36,13 +53,20 @@ public class ConfigActivity extends Activity {
             public void onClick(View view) {
             	DatePicker dp = (DatePicker) findViewById(R.id.pickerTargetDate);
             	EditText eventName = (EditText) findViewById(R.id.eventName);
-            	Intent intent = new Intent(WidgetActivity.ACTION_CONFIGURATION_CHANGED);
-            	intent.putExtra("eventYear", dp.getYear());
-            	intent.putExtra("eventMonth", dp.getMonth());
-            	intent.putExtra("eventDay", dp.getDayOfMonth());
-            	intent.putExtra("eventName", eventName.getText().toString());
+            	CBDDPreferences prefs = new CBDDPreferences();
+            	prefs.setEventName(eventName.getText().toString());
+            	Calendar eventCal = new GregorianCalendar(dp.getYear(), dp.getMonth(), dp.getDayOfMonth());
+            	prefs.setEventTimestamp(eventCal.getTimeInMillis());
+            	PreferencesUtils.save(ConfigActivity.this, widgetId, prefs);
+
+                // change the result to OK
+                Intent resultValue = new Intent();
+                resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
+                setResult(RESULT_OK, resultValue);
+
+                // broadcast update message to the widget
+                sendBroadcast(new Intent(WidgetActivity.ACTION_CONFIGURATION_CHANGED));
             	
-                getApplicationContext().sendBroadcast(intent);
                 finish();
             }
         });

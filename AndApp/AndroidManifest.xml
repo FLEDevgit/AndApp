@@ -28,7 +28,14 @@
         <activity
             android:name="com.example.andapp.ConfigActivity"
             android:label="@string/title_activity_config" >
+            	<intent-filter>
+     				<action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+    			 </intent-filter>
         </activity>
+         <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
     </application>
 
 </manifest>
