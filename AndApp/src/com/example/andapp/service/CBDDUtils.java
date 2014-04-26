@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class CBDDUtils {
 
-	public static Integer getSleepsNrToYearMonthDay(long eventTimestamp) {
+	public static Integer getSleepsCountUptoEvent(long eventTimestamp) {
 		Date current = new Date();
 		Long gapInMillis = eventTimestamp - current.getTime();
 		if(gapInMillis<=0){

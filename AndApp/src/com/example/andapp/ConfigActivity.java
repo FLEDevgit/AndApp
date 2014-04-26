@@ -7,9 +7,6 @@ import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -38,7 +35,12 @@ public class ConfigActivity extends Activity {
 		
 		setContentView(R.layout.activity_config);
 
-		 // cancel button
+		
+		//initialize view with saved preferences
+		CBDDPreferences prefs = PreferencesUtils.load(ConfigActivity.this, widgetId);
+		initializeView(prefs);
+		
+		// cancel button
         Button btnCancel = (Button) findViewById(R.id.buttonCancel);
         btnCancel.setOnClickListener(new OnClickListener() {
             @Override
@@ -51,15 +53,8 @@ public class ConfigActivity extends Activity {
         btnOk.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-            	DatePicker dp = (DatePicker) findViewById(R.id.pickerTargetDate);
-            	EditText eventName = (EditText) findViewById(R.id.eventName);
-            	CBDDPreferences prefs = new CBDDPreferences();
-            	prefs.setEventName(eventName.getText().toString());
-            	Calendar eventCal = new GregorianCalendar(dp.getYear(), dp.getMonth(), dp.getDayOfMonth());
-            	prefs.setEventTimestamp(eventCal.getTimeInMillis());
-            	PreferencesUtils.save(ConfigActivity.this, widgetId, prefs);
+            	saveEventConfigInPreferences();
 
-                // change the result to OK
                 Intent resultValue = new Intent();
                 resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
                 setResult(RESULT_OK, resultValue);
@@ -69,29 +64,38 @@ public class ConfigActivity extends Activity {
             	
                 finish();
             }
+
         });
         
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.config, menu);
-		return true;
+	private void saveEventConfigInPreferences() {
+		//build CBDDPreferences items from view's components
+		CBDDPreferences prefs = new CBDDPreferences();
+		
+		//event name
+		EditText eventName = (EditText) findViewById(R.id.eventName);
+		prefs.setEventName(eventName.getText().toString());
+		//event date
+		DatePicker dp = (DatePicker) findViewById(R.id.pickerTargetDate);
+    	Calendar eventCal = new GregorianCalendar(dp.getYear(), dp.getMonth(), dp.getDayOfMonth());
+    	prefs.setEventTimestamp(eventCal.getTimeInMillis());
+    	
+    	//save CBDDPreferences for widget
+    	PreferencesUtils.save(ConfigActivity.this, widgetId, prefs);
 	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
+	
+	private void initializeView(CBDDPreferences prefs) {
+		//event name input
+		EditText eventName = (EditText) findViewById(R.id.eventName);
+		eventName.setText(prefs.getEventName());
+		
+		//event date selector
+		DatePicker dp = (DatePicker) findViewById(R.id.pickerTargetDate);
+    	Calendar eventCal = new GregorianCalendar();
+    	eventCal.setTimeInMillis(prefs.getEventTimestamp());
+    	dp.init(eventCal.get(Calendar.YEAR), eventCal.get(Calendar.MONTH), eventCal.get(Calendar.DATE), null);
+		
 	}
-
 
 }
