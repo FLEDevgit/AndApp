@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources  xmlns:tools="http://schemas.android.com/tools" tools:locale="fr">
+<resources  xmlns:tools="http://schemas.android.com/tools">
 
-    <string name="app_name">Combien de dodos</string>
-    <string name="widget_titre">Il reste</string>
+    <string name="app_name">How many sleeps</string>
+    <string name="widget_titre"></string>
     <string name="widget_count">35</string>
-    <string name="widget_unite">dodos</string>
-    <string name="widget_before">avant les vacances!</string>
-    <string name="desc_background">Combien de dodos ?</string>
-    <string name="action_settings">Parametres</string>
-    <string name="testMSG">Test pour keumit</string>
-	<string name="click">Click me!</string>
+    <string name="widget_unite">sleeps</string>
+    <string name="widget_before">before holydays!</string>
+    <string name="desc_background">How many sleeps ?</string>
 	<string name="title_activity_config">Event \'s settings</string>
 	<string name="label_ok">OK</string>
-	<string name="pref_event_name_hint">Event name...</string>
+	<string name="pref_event_name_hint">Event\'s name&#8230;</string>
 	<string name="label_cancel">Cancel</string>
     
 </resources>
