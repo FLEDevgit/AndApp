@@ -18,7 +18,6 @@ public class PreferencesUtils {
 		CBDDPreferences preferences = new CBDDPreferences();
 		preferences.setEventTimestamp(sharedPrefs.getLong(EVENT_TIMESTAMP_KEY + widgetId, System.currentTimeMillis()));
 		preferences.setEventName(sharedPrefs.getString(EVENT_NAME_KEY + widgetId, null));
-		Log.w("", "load widget "+widgetId + " : [time:"+preferences.getEventTimestamp()+"]");
 		return preferences;
 	}
 	
@@ -28,7 +27,6 @@ public class PreferencesUtils {
 
 		edit.putString(EVENT_NAME_KEY + widgetId, prefs.getEventName());
         edit.putLong(EVENT_TIMESTAMP_KEY + widgetId, prefs.getEventTimestamp());
-        Log.w("", "save widget "+widgetId+ " : [time:"+prefs.getEventTimestamp()+"]");
 
         edit.commit();
     }

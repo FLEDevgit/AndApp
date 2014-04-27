@@ -2,19 +2,28 @@ package com.example.andapp;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.appwidget.AppWidgetManager;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Telephony;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-
+import android.widget.LinearLayout;
 import com.example.andapp.bean.CBDDPreferences;
 import com.example.andapp.service.PreferencesUtils;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 
 public class ConfigActivity extends Activity {
 
@@ -66,7 +75,75 @@ public class ConfigActivity extends Activity {
             }
 
         });
+        Button btnShare = (Button) findViewById(R.id.buttonShare);
+        btnShare.setOnClickListener(new OnClickListener() {
+			@Override
+            public void onClick(View view) {
+            	saveEventConfigInPreferences();
+            	Intent intent = new Intent(Intent.ACTION_SEND);
+            	intent.setType("text/plain");
+            	intent.putExtra(Intent.EXTRA_TEXT, "test partage CBDD");
+            	startActivity(Intent.createChooser(intent, "Share with"));
+            }
+
+
+        });
         
+        initializeAds();
+	}
+	
+	@SuppressLint("NewApi")
+	private void sendSMS() {
+		String smsText="test share via sms";
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) //At least KitKat
+		{
+			String defaultSmsPackageName = Telephony.Sms.getDefaultSmsPackage(ConfigActivity.this); //Need to change the build to API 19
+			
+			Intent sendIntent = new Intent(Intent.ACTION_SEND);
+			sendIntent.setType("text/plain");
+			sendIntent.putExtra(Intent.EXTRA_TEXT, smsText);
+			
+			if (defaultSmsPackageName != null)//Can be null in case that there is no default, then the user would be able to choose any app that support this intent.
+			{
+				sendIntent.setPackage(defaultSmsPackageName);
+			}
+			ConfigActivity.this.startActivity(sendIntent);
+			
+		}
+		else //For early versions, do what worked for you before.
+		{
+			Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+			sendIntent.setData(Uri.parse("sms:"));
+			sendIntent.putExtra("sms_body", smsText);
+			ConfigActivity.this.startActivity(sendIntent);
+		}
+	}
+
+	private void initializeAds() {
+	    // Créez l'objet adView.
+	    AdView adView = new AdView(this);
+	    adView.setAdUnitId("ca-app-pub-3312239518600616/4219170684");
+	    adView.setAdSize(AdSize.FULL_BANNER);
+
+	    // Recherchez l'entité LinearLayout en supposant qu'elle est associée à
+	    // l'attribut android:id="@+id/mainLayout".
+	    LinearLayout adsLayout = (LinearLayout)findViewById(R.id.adsContainer);
+
+	    // Ajoutez-y l'objet adView.
+	    adsLayout.addView(adView);
+
+	    // Initiez une demande générique.
+	    final TelephonyManager tm =(TelephonyManager)getBaseContext().getSystemService(Context.TELEPHONY_SERVICE);
+	    String deviceId = tm.getDeviceId();
+Log.w("",deviceId);
+	    AdRequest adRequest = new AdRequest.Builder()
+	    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)       // Émulateur
+	    .addTestDevice(deviceId)  // Mon téléphone test Galaxy Nexus
+	    .build();
+	    
+	    // Chargez l'objet adView avec la demande d'annonce.
+	    adView.loadAd(adRequest);
+		
 	}
 
 	private void saveEventConfigInPreferences() {
@@ -77,7 +154,7 @@ public class ConfigActivity extends Activity {
 		EditText eventName = (EditText) findViewById(R.id.eventName);
 		prefs.setEventName(eventName.getText().toString());
 		//event date
-		DatePicker dp = (DatePicker) findViewById(R.id.pickerTargetDate);
+		DatePicker dp = (DatePicker) findViewById(R.id.selectorEventDate);
     	Calendar eventCal = new GregorianCalendar(dp.getYear(), dp.getMonth(), dp.getDayOfMonth());
     	prefs.setEventTimestamp(eventCal.getTimeInMillis());
     	
@@ -91,7 +168,7 @@ public class ConfigActivity extends Activity {
 		eventName.setText(prefs.getEventName());
 		
 		//event date selector
-		DatePicker dp = (DatePicker) findViewById(R.id.pickerTargetDate);
+		DatePicker dp = (DatePicker) findViewById(R.id.selectorEventDate);
     	Calendar eventCal = new GregorianCalendar();
     	eventCal.setTimeInMillis(prefs.getEventTimestamp());
     	dp.init(eventCal.get(Calendar.YEAR), eventCal.get(Calendar.MONTH), eventCal.get(Calendar.DATE), null);

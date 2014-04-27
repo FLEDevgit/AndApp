@@ -15,19 +15,28 @@
                 android:scrollbars="none"
                 android:orientation="vertical"
                 android:layout_alignParentTop="true"
-                android:layout_above="@+id/barOkCancel"
+                android:layout_above="@+id/barActions"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
 
-        <LinearLayout 
+        <LinearLayout android:id="@+id/linearConfigLayout"
                       android:layout_width="fill_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical">
-
-
+			<LinearLayout android:id="@+id/adsContainer"
+			    android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+			    android:orientation="vertical">
+			</LinearLayout>
+			<View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@android:color/white" />
             <!-- select target day -->
             <DatePicker 
-                    android:id="@+id/pickerTargetDate"
+                    android:id="@+id/selectorEventDate"
                     android:layout_marginTop="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -56,21 +65,25 @@
                             android:inputType="text">
                     </EditText>
             </LinearLayout>
+	        <Button android:text="share"
+	                android:id="@+id/buttonShare"
+	                android:layout_gravity="center"
+	                android:layout_width="150dip"
+	                android:layout_height="wrap_content">
+	        </Button>
         </LinearLayout>
     </ScrollView>
 
-
-    <!-- anchor ok/cancel buttons at the bottom of the view -->
-    <LinearLayout android:id="@+id/barOkCancel"
+    <LinearLayout android:id="@+id/barActions"
                   style="@android:style/ButtonBar"
                   android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
                   android:layout_alignParentBottom="true"
-                  android:layout_centerHorizontal="true"
                   android:paddingTop="5dp"
                   android:paddingBottom="5dp"
                   android:paddingLeft="10dp"
                   android:paddingRight="10dp"
+                  android:gravity="center"
                   android:orientation="horizontal">
         <Button android:text="@string/label_ok"
                 android:id="@+id/buttonOk"
@@ -85,6 +98,5 @@
                 android:layout_height="wrap_content">
         </Button>
     </LinearLayout>
-
 
 </RelativeLayout>
