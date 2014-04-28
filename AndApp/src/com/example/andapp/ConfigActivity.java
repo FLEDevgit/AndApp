@@ -2,6 +2,7 @@ package com.example.andapp;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.appwidget.AppWidgetManager;
@@ -19,7 +20,9 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+
 import com.example.andapp.bean.CBDDPreferences;
+import com.example.andapp.service.CBDDUtils;
 import com.example.andapp.service.PreferencesUtils;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -79,11 +82,14 @@ public class ConfigActivity extends Activity {
         btnShare.setOnClickListener(new OnClickListener() {
 			@Override
             public void onClick(View view) {
+				CBDDPreferences prefs = PreferencesUtils.load(ConfigActivity.this, widgetId);
+				String checkedEventName = prefs.getEventName()!=null? prefs.getEventName(): getString(R.string.no_name);
+				String shareText = getString(R.string.share_text, checkedEventName,CBDDUtils.getSleepsCountUptoEvent(prefs.getEventTimestamp()));
             	saveEventConfigInPreferences();
             	Intent intent = new Intent(Intent.ACTION_SEND);
             	intent.setType("text/plain");
-            	intent.putExtra(Intent.EXTRA_TEXT, "test partage CBDD");
-            	startActivity(Intent.createChooser(intent, "Share with"));
+				intent.putExtra(Intent.EXTRA_TEXT, shareText);
+            	startActivity(Intent.createChooser(intent, getString(R.string.share_with)));
             }
 
 
@@ -92,32 +98,32 @@ public class ConfigActivity extends Activity {
         initializeAds();
 	}
 	
-	@SuppressLint("NewApi")
-	private void sendSMS() {
-		String smsText="test share via sms";
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) //At least KitKat
-		{
-			String defaultSmsPackageName = Telephony.Sms.getDefaultSmsPackage(ConfigActivity.this); //Need to change the build to API 19
-			
-			Intent sendIntent = new Intent(Intent.ACTION_SEND);
-			sendIntent.setType("text/plain");
-			sendIntent.putExtra(Intent.EXTRA_TEXT, smsText);
-			
-			if (defaultSmsPackageName != null)//Can be null in case that there is no default, then the user would be able to choose any app that support this intent.
-			{
-				sendIntent.setPackage(defaultSmsPackageName);
-			}
-			ConfigActivity.this.startActivity(sendIntent);
-			
-		}
-		else //For early versions, do what worked for you before.
-		{
-			Intent sendIntent = new Intent(Intent.ACTION_VIEW);
-			sendIntent.setData(Uri.parse("sms:"));
-			sendIntent.putExtra("sms_body", smsText);
-			ConfigActivity.this.startActivity(sendIntent);
-		}
-	}
+//	@SuppressLint("NewApi")
+//	private void sendSMS() {
+//		String smsText="test share via sms";
+//		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) //At least KitKat
+//		{
+//			String defaultSmsPackageName = Telephony.Sms.getDefaultSmsPackage(ConfigActivity.this); //Need to change the build to API 19
+//			
+//			Intent sendIntent = new Intent(Intent.ACTION_SEND);
+//			sendIntent.setType("text/plain");
+//			sendIntent.putExtra(Intent.EXTRA_TEXT, smsText);
+//			
+//			if (defaultSmsPackageName != null)//Can be null in case that there is no default, then the user would be able to choose any app that support this intent.
+//			{
+//				sendIntent.setPackage(defaultSmsPackageName);
+//			}
+//			ConfigActivity.this.startActivity(sendIntent);
+//			
+//		}
+//		else //For early versions, do what worked for you before.
+//		{
+//			Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+//			sendIntent.setData(Uri.parse("sms:"));
+//			sendIntent.putExtra("sms_body", smsText);
+//			ConfigActivity.this.startActivity(sendIntent);
+//		}
+//	}
 
 	private void initializeAds() {
 	    // Créez l'objet adView.

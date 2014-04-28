@@ -11,6 +11,9 @@
 	<string name="label_ok">Valider</string>
 	<string name="pref_event_name_hint">Nom de l\'événement&#8230;</string>
 	<string name="label_cancel">Annuler</string>
+    <string name="share_with">Partager</string>
+    <string name="share_text">%1$s : c\'est dans %2$o dodos !</string>
+    <string name="no_name">sans_nom</string>
     
 </resources>
 
