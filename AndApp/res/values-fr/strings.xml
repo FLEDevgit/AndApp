@@ -15,6 +15,9 @@
     <string name="share_with">Partager</string>
     <string name="share_text">%1$s : c\'est dans %2$o dodos !</string>
     <string name="no_name">sans_nom</string>
-    
+    <string-array name="theme_arrays">
+        <item>Aucun</item>
+        <item>Vacances</item>
+    </string-array>
 </resources>
 

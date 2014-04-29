@@ -65,6 +65,12 @@
                             android:inputType="text">
                     </EditText>
             </LinearLayout>
+            <Spinner
+		        android:id="@+id/spinnerTheme"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:entries="@array/theme_arrays"
+		        android:prompt="@string/theme_prompt" />
 	        <Button android:text="share"
 	                android:id="@+id/buttonShare"
 	                android:layout_gravity="center"

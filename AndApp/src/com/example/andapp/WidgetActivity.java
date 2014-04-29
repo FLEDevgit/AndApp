@@ -61,7 +61,7 @@ public class WidgetActivity extends AppWidgetProvider {
 	        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 	        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
 	        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-	        views.setOnClickPendingIntent(R.id.widget_container, pendingIntent);
+	        views.setOnClickPendingIntent(R.id.activity_cbdd_layout, pendingIntent);
 	        
 	        return views;
 	    }
