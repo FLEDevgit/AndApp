@@ -1,9 +1,4 @@
 <resources>
-
-    <!--
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
@@ -17,4 +12,21 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <!-- Widget theme. -->
+
+    <style name="TextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    
+    <style name="TextStyle.Normal" parent="TextStyle">
+        <item name="android:textSize">20sp</item>
+    </style>
+    
+    <style name="TextStyle.Big" parent="TextStyle">
+        <item name="android:textSize">75sp</item>
+    </style>
+    
+    
 </resources>

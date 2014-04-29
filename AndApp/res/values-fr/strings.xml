@@ -5,7 +5,8 @@
     <string name="widget_titre">Il reste</string>
     <string name="widget_count">35</string>
     <string name="widget_unite">dodos</string>
-    <string name="widget_before">avant les vacances!</string>
+    <string name="widget_before">avant</string>
+    <string name="widget_event">les vacances!</string>
     <string name="desc_background">Combien de dodos ?</string>
 	<string name="title_activity_config">Paramétrage de l\'événement</string>
 	<string name="label_ok">Valider</string>
