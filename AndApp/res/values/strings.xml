@@ -2,10 +2,11 @@
 <resources  xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
     <string name="app_name">How many sleeps</string>
-    <string name="widget_titre"></string>
+    <string name="widget_titre">There are</string>
     <string name="widget_count">35</string>
     <string name="widget_unite">sleeps</string>
-    <string name="widget_before">before holydays!</string>
+    <string name="widget_before">before</string>
+    <string name="widget_event">holidays!</string>
     <string name="desc_background">How many sleeps ?</string>
 	<string name="title_activity_config">Event \'s settings</string>
 	<string name="label_ok">OK</string>
@@ -15,5 +16,11 @@
     <string name="share_text">%1$s : %2$o sleeps remaining !</string>
     <string name="no_name">no_name</string>
     
+     <string name="theme_prompt">Choose a theme</string>
+ 
+    <string-array name="theme_arrays">
+        <item>No theme</item>
+        <item>Holydays</item>
+    </string-array>
 </resources>
 
