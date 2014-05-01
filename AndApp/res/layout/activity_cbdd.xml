@@ -1,12 +1,15 @@
-
 <RelativeLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_cbdd_layout"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/background"
+    android:background="@drawable/rounded_bg"
     android:orientation="horizontal"
+    android:layout_marginTop="@dimen/activity_margin_top"
+    android:layout_marginBottom="@dimen/activity_margin_bottom"
+    android:layout_marginLeft="@dimen/activity_margin_left"
+    android:layout_marginRight="@dimen/activity_margin_right"
     android:paddingBottom="@dimen/activity_padding_bottom"
     android:paddingLeft="@dimen/activity_padding_left"
     android:paddingRight="@dimen/activity_padding_right"
@@ -31,7 +34,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_alignTop="@+id/textTitre_Layout"
 	    android:layout_toRightOf="@+id/textTitre_Layout"
-		android:layout_marginLeft="35dp">
+		android:layout_marginLeft="15dp">
 
 	    <TextView
 	        android:id="@+id/textCount"
@@ -45,7 +48,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_centerVertical="true"
 	    android:layout_toRightOf="@+id/textCount_Layout" 
-	    android:layout_marginLeft="15dp">
+	    android:layout_marginLeft="10dp">
 
 	    <TextView
 	        android:id="@+id/textUnite"
@@ -54,21 +57,17 @@
 	</LinearLayout>
 	
 	<LinearLayout
-    android:id="@+id/textBefore_Layout"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignBottom="@+id/textCount_Layout"
-    android:layout_toRightOf="@+id/textUnite_Layout"
-    android:layout_marginRight="80dp" >
+	    android:id="@+id/textBefore_Layout"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBottom="@+id/textCount_Layout"
+		android:layout_alignLeft="@+id/textUnite_Layout">
 	
 		<TextView
 		    android:id="@+id/textBefore"
 		    style="@style/TextStyle.Normal"
-		    android:text="@string/widget_before"
-		 />
-
+		    android:text="@string/widget_before" />
 	</LinearLayout>
-
 	    	    
 </RelativeLayout>
 

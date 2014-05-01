@@ -4,9 +4,8 @@
     <string name="app_name">How many sleeps</string>
     <string name="widget_titre">There are</string>
     <string name="widget_count">35</string>
-    <string name="widget_unite">sleeps</string>
-    <string name="widget_before">before</string>
-    <string name="widget_event">holidays!</string>
+    <string name="widget_unite">sleeps before</string>
+    <string name="widget_before">holidays!</string>
     <string name="desc_background">How many sleeps ?</string>
 	<string name="title_activity_config">Event \'s settings</string>
 	<string name="label_ok">OK</string>
@@ -20,12 +19,12 @@
  	
     <string-array name="theme_code_arrays">
         <item>no_theme</item>
-        <item>holydays</item>
+        <item>holidays</item>
     </string-array>
     
     <string-array name="theme_arrays">
         <item>No theme</item>
-        <item>Holydays</item>
+        <item>Holidays</item>
     </string-array>
     
 </resources>

@@ -1,8 +1,12 @@
 <resources>
     
-    <!-- App margin and padding -->
-    <dimen name="activity_horizontal_margin">8dp</dimen>
-    <dimen name="activity_vertical_margin">8dp</dimen>
+    <!-- App margin -->
+    <dimen name="activity_margin_top">4dp</dimen>
+    <dimen name="activity_margin_bottom">4dp</dimen>
+    <dimen name="activity_margin_left">2dp</dimen>
+    <dimen name="activity_margin_right">2dp</dimen>
+    
+    <!-- App padding -->
     <dimen name="activity_padding_top">4dp</dimen>
 	<dimen name="activity_padding_bottom">10dp</dimen>
 	<dimen name="activity_padding_left">8dp</dimen>
