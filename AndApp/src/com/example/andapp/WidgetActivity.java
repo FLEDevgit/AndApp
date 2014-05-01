@@ -51,11 +51,19 @@ public class WidgetActivity extends AppWidgetProvider {
 	        CBDDPreferences prefs = PreferencesUtils.load(context, widgetId);
 	    	//event's name
 	        String eventName = prefs.getEventName();
-	    	
+	    	if(eventName!=null && !"".equals(eventName)){
+	    		views.setTextViewText(R.id.textBefore, eventName);
+	    	}else{
+	    		views.setTextViewText(R.id.textBefore, context.getString(R.string.widget_before));
+	    	}
 	    	//sleeps count
 	    	Long eventDate = prefs.getEventTimestamp();	    	
 	        views.setTextViewText(R.id.textCount, CBDDUtils.getSleepsCountUptoEvent(eventDate) + "");
 
+	        //background
+	        int id = context.getResources().getIdentifier(prefs.getWidgetThemeCode(), "drawable", context.getPackageName());
+	        views.setInt(R.id.activity_cbdd_layout, "setBackgroundResource", id);
+	        
 	        //open configuration view on touch
 	        Intent intent = new Intent(context, ConfigActivity.class);
 	        Uri data = Uri.withAppendedPath(Uri.parse("flemsg://widget_id/"), String.valueOf(widgetId));
