@@ -21,11 +21,15 @@
     </style>
     
     <style name="TextStyle.Normal" parent="TextStyle">
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">20sp</item>
     </style>
     
     <style name="TextStyle.Big" parent="TextStyle">
-        <item name="android:textSize">64sp</item>
+        <item name="android:textSize">45sp</item>
+    </style>
+    
+    <style name="TextStyle.Unit" parent="TextStyle">
+        <item name="android:textSize">15sp</item>
     </style>
     
     

@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.RemoteViews;
 
+
+
 import com.example.andapp.bean.CBDDPreferences;
 import com.example.andapp.service.CBDDUtils;
 import com.example.andapp.service.PreferencesUtils;
@@ -65,4 +67,7 @@ public class WidgetActivity extends AppWidgetProvider {
 	        
 	        return views;
 	    }
+
 }
+	    
+
