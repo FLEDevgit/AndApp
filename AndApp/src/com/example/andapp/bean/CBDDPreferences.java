@@ -4,6 +4,7 @@ public class CBDDPreferences {
 	
 	public String eventName;
 	public long eventTimestamp;
+	public String widgetThemeCode;
 	
 	public String getEventName() {
 		return eventName;
@@ -16,6 +17,12 @@ public class CBDDPreferences {
 	}
 	public void setEventTimestamp(long eventTimestamp) {
 		this.eventTimestamp = eventTimestamp;
+	}
+	public String getWidgetThemeCode() {
+		return widgetThemeCode;
+	}
+	public void setWidgetThemeCode(String widgetThemeCode) {
+		this.widgetThemeCode = widgetThemeCode;
 	}
 	
 }

@@ -2,7 +2,6 @@ package com.example.andapp.service;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.example.andapp.bean.CBDDPreferences;
 
@@ -11,6 +10,7 @@ public class PreferencesUtils {
 	private static final String PREFS_KEY = "cbdd_prefs";
 	private static final String EVENT_TIMESTAMP_KEY = "EVENT_TIMESTAMP_KEY";
 	private static final String EVENT_NAME_KEY = "EVENT_NAME_KEY";
+	private static final String EVENT_THEME_KEY = "EVENT_THEME_KEY";
 
 	static public CBDDPreferences load(Context context, int widgetId) {
 		SharedPreferences sharedPrefs = context.getSharedPreferences(PREFS_KEY,	0);
@@ -18,6 +18,8 @@ public class PreferencesUtils {
 		CBDDPreferences preferences = new CBDDPreferences();
 		preferences.setEventTimestamp(sharedPrefs.getLong(EVENT_TIMESTAMP_KEY + widgetId, System.currentTimeMillis()));
 		preferences.setEventName(sharedPrefs.getString(EVENT_NAME_KEY + widgetId, null));
+		preferences.setWidgetThemeCode(sharedPrefs.getString(EVENT_THEME_KEY + widgetId, null));
+		
 		return preferences;
 	}
 	
@@ -27,7 +29,8 @@ public class PreferencesUtils {
 
 		edit.putString(EVENT_NAME_KEY + widgetId, prefs.getEventName());
         edit.putLong(EVENT_TIMESTAMP_KEY + widgetId, prefs.getEventTimestamp());
-
+        edit.putString(EVENT_THEME_KEY + widgetId, prefs.getWidgetThemeCode());
+        
         edit.commit();
     }
 }

@@ -64,10 +64,7 @@ public class ConfigActivity extends Activity {
             @Override
             public void onClick(View view) {
             	saveEventConfigInPreferences();
-            	Spinner themeSpinner = (Spinner) findViewById(R.id.spinnerTheme);
-            	String[] array = getResources().getStringArray(R.array.theme_code_arrays);
-            	   
-            	Toast.makeText(ConfigActivity.this, array[themeSpinner.getSelectedItemPosition()], Toast.LENGTH_LONG).show();
+            	
                 Intent resultValue = new Intent();
                 resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
                 setResult(RESULT_OK, resultValue);
@@ -83,6 +80,7 @@ public class ConfigActivity extends Activity {
         btnShare.setOnClickListener(new OnClickListener() {
 			@Override
             public void onClick(View view) {
+				saveEventConfigInPreferences();
 				CBDDPreferences prefs = PreferencesUtils.load(ConfigActivity.this, widgetId);
 				String checkedEventName = prefs.getEventName()!=null? prefs.getEventName(): getString(R.string.no_name);
 				String shareText = getString(R.string.share_text, checkedEventName,CBDDUtils.getSleepsCountUptoEvent(prefs.getEventTimestamp()));
@@ -164,6 +162,10 @@ Log.w("",deviceId);
 		DatePicker dp = (DatePicker) findViewById(R.id.selectorEventDate);
     	Calendar eventCal = new GregorianCalendar(dp.getYear(), dp.getMonth(), dp.getDayOfMonth());
     	prefs.setEventTimestamp(eventCal.getTimeInMillis());
+    	//widget theme
+    	Spinner themeSpinner = (Spinner) findViewById(R.id.spinnerTheme);
+    	prefs.setWidgetThemeCode(CBDDUtils.getThemeCodeForPosition(themeSpinner.getSelectedItemPosition(), getResources().getStringArray(R.array.theme_code_arrays)));
+    	
     	
     	//save CBDDPreferences for widget
     	PreferencesUtils.save(ConfigActivity.this, widgetId, prefs);
@@ -173,13 +175,17 @@ Log.w("",deviceId);
 		//event name input
 		EditText eventName = (EditText) findViewById(R.id.eventName);
 		eventName.setText(prefs.getEventName());
-		
+
 		//event date selector
 		DatePicker dp = (DatePicker) findViewById(R.id.selectorEventDate);
     	Calendar eventCal = new GregorianCalendar();
     	eventCal.setTimeInMillis(prefs.getEventTimestamp());
     	dp.init(eventCal.get(Calendar.YEAR), eventCal.get(Calendar.MONTH), eventCal.get(Calendar.DATE), null);
 		
+    	//widget theme
+    	Spinner themeSpinner = (Spinner) findViewById(R.id.spinnerTheme);
+    	themeSpinner.setSelection(CBDDUtils.getPositionForThemeCode(prefs.getWidgetThemeCode(), getResources().getStringArray(R.array.theme_code_arrays)));
+    	
 	}
 
 }
