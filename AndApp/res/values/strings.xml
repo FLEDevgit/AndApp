@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources  xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
+<!-- Application -->
+
     <string name="app_name">How many sleeps</string>
     <string name="widget_titre">There are</string>
     <string name="widget_count">135</string>
@@ -15,17 +17,19 @@
     <string name="share_text">%1$s : %2$o sleeps remaining !</string>
     <string name="no_name">no_name</string>
     
-     <string name="theme_prompt">Choose a theme</string>
+<!-- Configuration -->    
+    <string name="share_button_title">Share</string>
+    <string name="theme_prompt">Choose a theme</string>
  	
+<!-- Theme dynamisation -->
     <string-array name="theme_code_arrays">
         <item>fond</item>
         <item>beach_bg_image</item>
     </string-array>
-    
-    <string-array name="theme_arrays">
+        <string-array name="theme_arrays">
         <item>No theme</item>
         <item>Holidays</item>
     </string-array>
-    
+     
 </resources>
 

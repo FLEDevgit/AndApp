@@ -75,6 +75,7 @@ public class WidgetActivity extends AppWidgetProvider {
 	        
 	        return views;
 	    }
+	    
 
 }
 	    

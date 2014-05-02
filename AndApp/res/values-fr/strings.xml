@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources  xmlns:tools="http://schemas.android.com/tools" tools:locale="fr">
 
+<!-- Application -->
+
     <string name="app_name">Combien de dodos</string>
     <string name="widget_titre">Il reste</string>
     <string name="widget_count">35</string>
@@ -14,9 +16,19 @@
     <string name="share_with">Partager</string>
     <string name="share_text">%1$s : c\'est dans %2$o dodos !</string>
     <string name="no_name">sans_nom</string>
-    <string-array name="theme_arrays">
+    
+<!-- Configuration -->    
+    <string name="share_button_title">Share</string>
+    <string name="theme_prompt">Choose a theme</string>
+ 	
+<!-- Theme dynamisation -->
+    <string-array name="theme_code_arrays">
+        <item>fond</item>
+        <item>beach_bg_image</item>
+    </string-array>
+        <string-array name="theme_arrays">
         <item>Aucun</item>
         <item>Vacances</item>
     </string-array>
+    
 </resources>
-

@@ -26,6 +26,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
+
 public class ConfigActivity extends Activity {
 
 	int widgetId;
@@ -187,5 +188,5 @@ Log.w("",deviceId);
     	themeSpinner.setSelection(CBDDUtils.getPositionForThemeCode(prefs.getWidgetThemeCode(), getResources().getStringArray(R.array.theme_code_arrays)));
     	
 	}
-
+ 
 }
