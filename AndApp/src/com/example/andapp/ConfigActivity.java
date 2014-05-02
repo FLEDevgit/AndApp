@@ -17,7 +17,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.andapp.bean.CBDDPreferences;
 import com.example.andapp.service.CBDDUtils;
@@ -129,7 +128,7 @@ public class ConfigActivity extends Activity {
 	    // Créez l'objet adView.
 	    AdView adView = new AdView(this);
 	    adView.setAdUnitId("ca-app-pub-3312239518600616/4219170684");
-	    adView.setAdSize(AdSize.FULL_BANNER);
+	    adView.setAdSize(AdSize.SMART_BANNER);
 
 	    // Recherchez l'entité LinearLayout en supposant qu'elle est associée à
 	    // l'attribut android:id="@+id/mainLayout".
