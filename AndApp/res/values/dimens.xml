@@ -12,10 +12,12 @@
 	<dimen name="activity_padding_left">8dp</dimen>
 	<dimen name="activity_padding_right">8dp</dimen>
 	
-	<!-- Config Linear Layout Padding -->
+	<!-- Config / Linear Layout Padding -->
 	<dimen name="BarActionLayout_padding_top">5dp</dimen>
     <dimen name="BarActionLayout_padding_bottom">5dp</dimen>
     <dimen name="BarActionLayout_padding_left">10dp</dimen>
     <dimen name="BarActionLayout_padding_right">10dp</dimen> 
+    
+    
 
 </resources>
