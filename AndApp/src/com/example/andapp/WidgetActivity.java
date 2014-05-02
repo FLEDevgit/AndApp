@@ -61,7 +61,8 @@ public class WidgetActivity extends AppWidgetProvider {
 	        views.setTextViewText(R.id.textCount, CBDDUtils.getSleepsCountUptoEvent(eventDate) + "");
 
 	        //background
-	        int id = context.getResources().getIdentifier(prefs.getWidgetThemeCode(), "drawable", context.getPackageName());
+	        String name = prefs.getWidgetThemeCode()!=null? prefs.getWidgetThemeCode():"fond";
+	        int id = context.getResources().getIdentifier(name, "drawable", context.getPackageName());
 	        views.setInt(R.id.activity_cbdd_layout, "setBackgroundResource", id);
 	        
 	        //open configuration view on touch

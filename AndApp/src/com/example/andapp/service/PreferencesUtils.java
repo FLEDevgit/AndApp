@@ -18,7 +18,7 @@ public class PreferencesUtils {
 		CBDDPreferences preferences = new CBDDPreferences();
 		preferences.setEventTimestamp(sharedPrefs.getLong(EVENT_TIMESTAMP_KEY + widgetId, System.currentTimeMillis()));
 		preferences.setEventName(sharedPrefs.getString(EVENT_NAME_KEY + widgetId, null));
-		preferences.setWidgetThemeCode(sharedPrefs.getString(EVENT_THEME_KEY + widgetId, null));
+		preferences.setWidgetThemeCode(sharedPrefs.getString(EVENT_THEME_KEY + widgetId, "no_theme"));
 		
 		return preferences;
 	}
