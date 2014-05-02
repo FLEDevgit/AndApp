@@ -81,7 +81,7 @@
 						android:text="@string/share_button_title"
 						android:id="@+id/buttonShare"
 						android:background="@drawable/layers_share_button"
-                		style="@style/buttonTextStyle.share"
+                		style="@style/buttonTextStyle"
 						android:layout_gravity="center"
 						android:layout_width="150dip"
 						android:layout_height="wrap_content">
