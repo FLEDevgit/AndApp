@@ -18,13 +18,16 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+//Action Bar
+import android.view.Menu;
+import android.view.MenuInflater;
+
 import com.example.andapp.bean.CBDDPreferences;
 import com.example.andapp.service.CBDDUtils;
 import com.example.andapp.service.PreferencesUtils;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-
 
 public class ConfigActivity extends Activity {
 
@@ -94,8 +97,22 @@ public class ConfigActivity extends Activity {
 
         });
         
-        initializeAds();
+        initializeAds();        
+
+}
+
+	//Action Bar Start
+    
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.action_bar_share_menu, menu);
+
+		return super.onCreateOptionsMenu(menu);
 	}
+	
+	//Action Bar end
+
+
 	
 //	@SuppressLint("NewApi")
 //	private void sendSMS() {
@@ -187,5 +204,8 @@ Log.w("",deviceId);
     	themeSpinner.setSelection(CBDDUtils.getPositionForThemeCode(prefs.getWidgetThemeCode(), getResources().getStringArray(R.array.theme_code_arrays)));
     	
 	}
- 
+
 }
+
+
+
