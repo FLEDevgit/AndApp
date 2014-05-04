@@ -13,12 +13,12 @@
 
 	<ScrollView 
 		android:id="@+id/scrollableContentHolder"
-		android:scrollbars="none"
+		android:scrollbars="horizontal"
 		android:orientation="vertical"
 		android:layout_alignParentTop="true"
 		android:layout_above="@+id/barActions"
 		android:layout_width="fill_parent"
-		android:layout_height="fill_parent">
+		android:layout_height="wrap_content">
 	
 	        <LinearLayout 
 	            android:id="@+id/linearConfigLayout"

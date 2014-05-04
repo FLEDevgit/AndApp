@@ -93,7 +93,24 @@ public class ConfigActivity extends Activity {
 				intent.putExtra(Intent.EXTRA_TEXT, shareText);
             	startActivity(Intent.createChooser(intent, getString(R.string.share_with)));
             }
-
+		// Start - Button Share Save
+		
+	        //Button btnShare = (Button) findViewById(R.id.buttonShare);
+	        //btnShare.setOnClickListener(new OnClickListener() {
+				//@Override
+	            //public void onClick(View view) {
+					//saveEventConfigInPreferences();
+					//CBDDPreferences prefs = PreferencesUtils.load(ConfigActivity.this, widgetId);
+					//String checkedEventName = prefs.getEventName()!=null? prefs.getEventName(): getString(R.string.no_name);
+					//String shareText = getString(R.string.share_text, checkedEventName,CBDDUtils.getSleepsCountUptoEvent(prefs.getEventTimestamp()));
+	            	//saveEventConfigInPreferences();
+	            	//Intent intent = new Intent(Intent.ACTION_SEND);
+	            	//intent.setType("text/plain");
+					//intent.putExtra(Intent.EXTRA_TEXT, shareText);
+	            	//startActivity(Intent.createChooser(intent, getString(R.string.share_with)));
+	            //}
+	
+		// End - Button Share Save
 
         });
         
@@ -142,25 +159,25 @@ public class ConfigActivity extends Activity {
 //	}
 
 	private void initializeAds() {
-	    // Créez l'objet adView.
+	    // Creeez l'objet adView.
 	    AdView adView = new AdView(this);
 	    adView.setAdUnitId("ca-app-pub-3312239518600616/4219170684");
 	    adView.setAdSize(AdSize.SMART_BANNER);
 
-	    // Recherchez l'entité LinearLayout en supposant qu'elle est associée à
+	    // Recherchez l'entite LinearLayout en supposant qu'elle est associee
 	    // l'attribut android:id="@+id/mainLayout".
 	    LinearLayout adsLayout = (LinearLayout)findViewById(R.id.adsContainer);
 
 	    // Ajoutez-y l'objet adView.
 	    adsLayout.addView(adView);
 
-	    // Initiez une demande générique.
+	    // Initiez une demande generique.
 	    final TelephonyManager tm =(TelephonyManager)getBaseContext().getSystemService(Context.TELEPHONY_SERVICE);
 	    String deviceId = tm.getDeviceId();
 Log.w("",deviceId);
 	    AdRequest adRequest = new AdRequest.Builder()
-	    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)       // Émulateur
-	    .addTestDevice(deviceId)  // Mon téléphone test Galaxy Nexus
+	    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)       // emulateur
+	    .addTestDevice(deviceId)  // Mon telephone test Galaxy Nexus
 	    .build();
 	    
 	    // Chargez l'objet adView avec la demande d'annonce.
