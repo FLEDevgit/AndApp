@@ -14,7 +14,7 @@
 	<string name="pref_event_name_hint">Event\'s name&#8230;</string>
 	<string name="label_cancel">Cancel</string>
     <string name="share_with">Share with</string>
-    <string name="share_text">%1$s : %2$o sleeps remaining !</string>
+    <string name="share_text">%1$s : %2$d sleeps remaining !</string>
     <string name="no_name">no_name</string>
     
 <!-- Configuration -->    

@@ -9,7 +9,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -17,10 +18,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-
-//Action Bar
-import android.view.Menu;
-import android.view.MenuInflater;
 
 import com.example.andapp.bean.CBDDPreferences;
 import com.example.andapp.service.CBDDUtils;
@@ -86,8 +83,7 @@ public class ConfigActivity extends Activity {
 				saveEventConfigInPreferences();
 				CBDDPreferences prefs = PreferencesUtils.load(ConfigActivity.this, widgetId);
 				String checkedEventName = prefs.getEventName()!=null? prefs.getEventName(): getString(R.string.no_name);
-				String shareText = getString(R.string.share_text, checkedEventName,CBDDUtils.getSleepsCountUptoEvent(prefs.getEventTimestamp()));
-            	saveEventConfigInPreferences();
+				String shareText = getString(R.string.share_text, checkedEventName, CBDDUtils.getSleepsCountUptoEvent(prefs.getEventTimestamp()));
             	Intent intent = new Intent(Intent.ACTION_SEND);
             	intent.setType("text/plain");
 				intent.putExtra(Intent.EXTRA_TEXT, shareText);
@@ -174,7 +170,6 @@ public class ConfigActivity extends Activity {
 	    // Initiez une demande generique.
 	    final TelephonyManager tm =(TelephonyManager)getBaseContext().getSystemService(Context.TELEPHONY_SERVICE);
 	    String deviceId = tm.getDeviceId();
-Log.w("",deviceId);
 	    AdRequest adRequest = new AdRequest.Builder()
 	    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)       // emulateur
 	    .addTestDevice(deviceId)  // Mon telephone test Galaxy Nexus
