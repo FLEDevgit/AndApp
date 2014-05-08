@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:custom="http://schemas.android.com/apk/res-auto" >
     
     <item
             android:id="@+id/menu_item_share"
-            android:showAsAction="ifRoom"
+            custom:showAsAction="ifRoom"
             android:title="@string/share_button_title"
-            android:actionProviderClass="android.widget.ShareActionProvider" />
+            custom:actionProviderClass="android.support.v7.widget.ShareActionProvider" />
 
 </menu>

@@ -3,14 +3,16 @@ package com.example.andapp;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import android.app.Activity;
 import android.appwidget.AppWidgetManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.ShareActionProvider;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
-import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -26,9 +28,10 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
-public class ConfigActivity extends Activity {
+public class ConfigActivity extends ActionBarActivity{
 
 	int widgetId;
+	private Intent shareIntent;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +45,7 @@ public class ConfigActivity extends Activity {
         cancelResultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
         setResult(RESULT_CANCELED, cancelResultValue);
 		
-		
 		setContentView(R.layout.activity_config);
-
 		
 		//initialize view with saved preferences
 		CBDDPreferences prefs = PreferencesUtils.load(ConfigActivity.this, widgetId);
@@ -76,84 +77,27 @@ public class ConfigActivity extends Activity {
             }
 
         });
-        Button btnShare = (Button) findViewById(R.id.buttonShare);
-        btnShare.setOnClickListener(new OnClickListener() {
-			@Override
-            public void onClick(View view) {
-				saveEventConfigInPreferences();
-				CBDDPreferences prefs = PreferencesUtils.load(ConfigActivity.this, widgetId);
-				String checkedEventName = prefs.getEventName()!=null? prefs.getEventName(): getString(R.string.no_name);
-				String shareText = getString(R.string.share_text, checkedEventName, CBDDUtils.getSleepsCountUptoEvent(prefs.getEventTimestamp()));
-            	Intent intent = new Intent(Intent.ACTION_SEND);
-            	intent.setType("text/plain");
-				intent.putExtra(Intent.EXTRA_TEXT, shareText);
-            	startActivity(Intent.createChooser(intent, getString(R.string.share_with)));
-            }
-		// Start - Button Share Save
-		
-	        //Button btnShare = (Button) findViewById(R.id.buttonShare);
-	        //btnShare.setOnClickListener(new OnClickListener() {
-				//@Override
-	            //public void onClick(View view) {
-					//saveEventConfigInPreferences();
-					//CBDDPreferences prefs = PreferencesUtils.load(ConfigActivity.this, widgetId);
-					//String checkedEventName = prefs.getEventName()!=null? prefs.getEventName(): getString(R.string.no_name);
-					//String shareText = getString(R.string.share_text, checkedEventName,CBDDUtils.getSleepsCountUptoEvent(prefs.getEventTimestamp()));
-	            	//saveEventConfigInPreferences();
-	            	//Intent intent = new Intent(Intent.ACTION_SEND);
-	            	//intent.setType("text/plain");
-					//intent.putExtra(Intent.EXTRA_TEXT, shareText);
-	            	//startActivity(Intent.createChooser(intent, getString(R.string.share_with)));
-	            //}
-	
-		// End - Button Share Save
-
-        });
         
         initializeAds();        
 
 }
 
 	//Action Bar Start
-    
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.action_bar_share_menu, menu);
+		getMenuInflater().inflate(R.menu.action_bar_share_menu, menu);
+		
+		updateShareIntent();
+		MenuItem item = menu.findItem(R.id.menu_item_share);
 
-		return super.onCreateOptionsMenu(menu);
+		ShareActionProvider myShareActionProvider = (ShareActionProvider)MenuItemCompat.getActionProvider(item);
+		myShareActionProvider.setShareIntent(shareIntent);
+
+		return true;
 	}
-	
 	//Action Bar end
 
-
 	
-//	@SuppressLint("NewApi")
-//	private void sendSMS() {
-//		String smsText="test share via sms";
-//		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) //At least KitKat
-//		{
-//			String defaultSmsPackageName = Telephony.Sms.getDefaultSmsPackage(ConfigActivity.this); //Need to change the build to API 19
-//			
-//			Intent sendIntent = new Intent(Intent.ACTION_SEND);
-//			sendIntent.setType("text/plain");
-//			sendIntent.putExtra(Intent.EXTRA_TEXT, smsText);
-//			
-//			if (defaultSmsPackageName != null)//Can be null in case that there is no default, then the user would be able to choose any app that support this intent.
-//			{
-//				sendIntent.setPackage(defaultSmsPackageName);
-//			}
-//			ConfigActivity.this.startActivity(sendIntent);
-//			
-//		}
-//		else //For early versions, do what worked for you before.
-//		{
-//			Intent sendIntent = new Intent(Intent.ACTION_VIEW);
-//			sendIntent.setData(Uri.parse("sms:"));
-//			sendIntent.putExtra("sms_body", smsText);
-//			ConfigActivity.this.startActivity(sendIntent);
-//		}
-//	}
-
 	private void initializeAds() {
 	    // Creeez l'objet adView.
 	    AdView adView = new AdView(this);
@@ -168,11 +112,9 @@ public class ConfigActivity extends Activity {
 	    adsLayout.addView(adView);
 
 	    // Initiez une demande generique.
-	    final TelephonyManager tm =(TelephonyManager)getBaseContext().getSystemService(Context.TELEPHONY_SERVICE);
-	    String deviceId = tm.getDeviceId();
 	    AdRequest adRequest = new AdRequest.Builder()
 	    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)       // emulateur
-	    .addTestDevice(deviceId)  // Mon telephone test Galaxy Nexus
+	    .addTestDevice("0000000000000")  // Mon telephone test Galaxy Nexus
 	    .build();
 	    
 	    // Chargez l'objet adView avec la demande d'annonce.
@@ -201,23 +143,44 @@ public class ConfigActivity extends Activity {
 	}
 	
 	private void initializeView(CBDDPreferences prefs) {
+		
+		shareIntent = new Intent();
+		shareIntent.setAction(Intent.ACTION_SEND);
+		shareIntent.setType("text/plain");
+		
 		//event name input
 		EditText eventName = (EditText) findViewById(R.id.eventName);
 		eventName.setText(prefs.getEventName());
-
+		eventName.addTextChangedListener(new TextWatcher() {
+	          public void afterTextChanged(Editable s) {
+	        	  updateShareIntent();
+	          }
+	          public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+	          public void onTextChanged(CharSequence s, int start, int before, int count) {}
+	       });
+		
 		//event date selector
 		DatePicker dp = (DatePicker) findViewById(R.id.selectorEventDate);
     	Calendar eventCal = new GregorianCalendar();
     	eventCal.setTimeInMillis(prefs.getEventTimestamp());
-    	dp.init(eventCal.get(Calendar.YEAR), eventCal.get(Calendar.MONTH), eventCal.get(Calendar.DATE), null);
+    	dp.init(eventCal.get(Calendar.YEAR), eventCal.get(Calendar.MONTH), eventCal.get(Calendar.DATE), new DatePicker.OnDateChangedListener() {
+			@Override
+			public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+				updateShareIntent();
+			}
+		});
 		
     	//widget theme
     	Spinner themeSpinner = (Spinner) findViewById(R.id.spinnerTheme);
     	themeSpinner.setSelection(CBDDUtils.getPositionForThemeCode(prefs.getWidgetThemeCode(), getResources().getStringArray(R.array.theme_code_arrays)));
     	
 	}
-
+	
+	private void updateShareIntent(){
+		saveEventConfigInPreferences();
+		CBDDPreferences prefs = PreferencesUtils.load(ConfigActivity.this, widgetId);
+		String checkedEventName = prefs.getEventName()!=null? prefs.getEventName(): getString(R.string.no_name);
+		String shareText = getString(R.string.share_text, checkedEventName, CBDDUtils.getSleepsCountUptoEvent(prefs.getEventTimestamp()));
+		shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
+	}
 }
-
-
-
