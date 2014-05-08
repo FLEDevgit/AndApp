@@ -1,9 +1,9 @@
-package com.example.andapp.service;
+package com.flemsg.andapp.service;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.andapp.bean.CBDDPreferences;
+import com.flemsg.andapp.bean.CBDDPreferences;
 
 public class PreferencesUtils {
 

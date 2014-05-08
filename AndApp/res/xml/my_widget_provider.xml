@@ -5,5 +5,5 @@
    		 android:minHeight="48dp"
    		 android:updatePeriodMillis="1800000"
    		 android:initialLayout="@layout/activity_cbdd"
-   		 android:configure="com.example.andapp.ConfigActivity"
+   		 android:configure="com.flemsg.andapp.ConfigActivity"
 />

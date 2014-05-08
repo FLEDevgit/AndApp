@@ -1,4 +1,4 @@
-package com.example.andapp.service;
+package com.flemsg.andapp.service;
 
 import java.util.Date;
 

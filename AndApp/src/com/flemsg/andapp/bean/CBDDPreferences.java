@@ -1,4 +1,4 @@
-package com.example.andapp.bean;
+package com.flemsg.andapp.bean;
 
 public class CBDDPreferences {
 	

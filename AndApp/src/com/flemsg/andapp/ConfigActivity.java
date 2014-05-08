@@ -1,4 +1,4 @@
-package com.example.andapp;
+package com.flemsg.andapp;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -21,9 +21,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
-import com.example.andapp.bean.CBDDPreferences;
-import com.example.andapp.service.CBDDUtils;
-import com.example.andapp.service.PreferencesUtils;
+import com.flemsg.andapp.bean.CBDDPreferences;
+import com.flemsg.andapp.service.CBDDUtils;
+import com.flemsg.andapp.service.PreferencesUtils;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;

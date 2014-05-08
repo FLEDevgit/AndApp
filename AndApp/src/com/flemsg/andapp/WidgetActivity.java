@@ -1,4 +1,4 @@
-package com.example.andapp;
+package com.flemsg.andapp;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -9,12 +9,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.RemoteViews;
 
-import com.example.andapp.bean.CBDDPreferences;
-import com.example.andapp.service.CBDDUtils;
-import com.example.andapp.service.PreferencesUtils;
+import com.flemsg.andapp.bean.CBDDPreferences;
+import com.flemsg.andapp.service.CBDDUtils;
+import com.flemsg.andapp.service.PreferencesUtils;
 
 public class WidgetActivity extends AppWidgetProvider {
-	public static final String ACTION_CONFIGURATION_CHANGED = "com.example.andapp.ACTION_CONFIGURATION_CHANGED";
+	public static final String ACTION_CONFIGURATION_CHANGED = "com.flemsg.andapp.ACTION_CONFIGURATION_CHANGED";
 	@Override
 	public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
 		 update(context);
