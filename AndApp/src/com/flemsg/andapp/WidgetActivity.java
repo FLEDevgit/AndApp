@@ -38,13 +38,13 @@ public class WidgetActivity extends AppWidgetProvider {
 	        int[] appWidgetIds = appWidgetManager.getAppWidgetIds(widget);
 
 	        for (int widgetId : appWidgetIds) {
-	            RemoteViews views = updateRemoteViews(context, widgetId);
+	            RemoteViews views = getUpdatedView(context, widgetId);
 	            appWidgetManager.updateAppWidget(widgetId, views);
 	        }
 	        
 	    }
 
-	    private RemoteViews updateRemoteViews(Context context, int widgetId) {
+	    public static RemoteViews getUpdatedView(Context context, int widgetId) {
 	    	RemoteViews views = new RemoteViews(context.getPackageName(),R.layout.activity_cbdd);
 	        CBDDPreferences prefs = PreferencesUtils.load(context, widgetId);
 	    	//event's name
