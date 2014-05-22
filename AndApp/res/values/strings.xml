@@ -25,10 +25,13 @@
     <string-array name="theme_code_arrays">
         <item>fond</item>
         <item>beach_bg_image</item>
+        <item>christmas</item>
     </string-array>
-        <string-array name="theme_arrays">
+    
+    <string-array name="theme_arrays">
         <item>No theme</item>
         <item>Holidays</item>
+        <item>Christmas</item>
     </string-array>
 
 </resources>
