@@ -1,102 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- relative layout holds 2 components:
-- a scrollview with the preferences and
-- a linearlayout bar for the buttons
--->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="vertical">
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_config_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/ConfigLayout_padding_bottom"
+    android:paddingTop="@dimen/ConfigLayout_padding_top">
+<!--     Ca posait problème sur les petites résolutions : le bandeau de pub a besoin de minimum 320px (100% sur les petits écrans) -->
+<!--     android:paddingLeft="@dimen/ConfigLayout_padding_left" -->
+<!--     android:paddingRight="@dimen/ConfigLayout_padding_right" -->
 
-    <!-- most important part for relative layout is layout_above; tells how to inflate this component !!! -->
-    <!-- second lesson learned: id MUST be given, otherwise class cast exception will occur at creation time -->
-    <ScrollView android:id="@+id/scrollableContentHolder"
-                android:scrollbars="none"
-                android:orientation="vertical"
-                android:layout_alignParentTop="true"
-                android:layout_above="@+id/barActions"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+	<ScrollView 
+		android:id="@+id/scrollableContentHolder"
+		android:scrollbars="horizontal"
+		android:orientation="vertical"
+		android:layout_alignParentTop="true"
+		android:layout_above="@+id/bottomContainer"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+	
+	        <LinearLayout 
+	            android:id="@+id/linearConfigLayout"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical">
+	            
+	            <!-- select target day -->
+	            	<DatePicker 
+	                    android:id="@+id/selectorEventDate"
+	                    android:layout_marginTop="3dp"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_gravity="center">
+	            	</DatePicker>
+	
+	         
+	           		 <View
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="1dp"
+	                    android:layout_marginBottom="7dp"
+	                    android:layout_marginTop="7dp"
+	                    android:background="@android:color/white" />
+	
+	            <!-- customize event name -->
+					<LinearLayout 
+					    android:orientation="horizontal"
+					    android:layout_width="fill_parent"
+					    android:layout_height="wrap_content">
+					    
+				                <EditText
+					                android:id="@+id/eventName"
+					                android:layout_width="fill_parent"
+					                android:layout_height="wrap_content"
+					                android:hint="@string/pref_event_name_hint"
+					                android:inputType="text">
+				               	</EditText>
+					</LinearLayout>
+			
+					<Spinner
+						android:id="@+id/spinnerTheme"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:entries="@array/theme_arrays"
+						android:prompt="@string/theme_prompt" />
+					
+		</LinearLayout>
+	</ScrollView>
 
-        <LinearLayout android:id="@+id/linearConfigLayout"
-                      android:layout_width="fill_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="vertical">
-			<LinearLayout android:id="@+id/adsContainer"
-			    android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-			    android:orientation="vertical">
-			</LinearLayout>
-			<View
-                    android:layout_width="fill_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="7dp"
-                    android:layout_marginTop="7dp"
-                    android:background="@android:color/white" />
-            <!-- select target day -->
-            <DatePicker 
-                    android:id="@+id/selectorEventDate"
-                    android:layout_marginTop="3dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center">
-            </DatePicker>
-
-         
-            <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="7dp"
-                    android:layout_marginTop="7dp"
-                    android:background="@android:color/white" />
-
-
-            <!-- customize event name -->
-            <LinearLayout 
-                          android:orientation="horizontal"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content">
-                <EditText
-                            android:id="@+id/eventName"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/pref_event_name_hint"
-                            android:inputType="text">
-                    </EditText>
-            </LinearLayout>
-	        <Button android:text="share"
-	                android:id="@+id/buttonShare"
+    
+    <LinearLayout
+        android:id="@+id/bottomContainer"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	   	android:layout_alignParentBottom="true"
+	    android:orientation="vertical">
+	    <LinearLayout
+	        android:id="@+id/barActions"
+	        style="@android:style/ButtonBar"
+	        android:paddingTop="@dimen/BarActionLayout_padding_top"
+	        android:paddingBottom="@dimen/BarActionLayout_padding_bottom"
+	        android:paddingLeft="@dimen/BarActionLayout_padding_left"
+	        android:paddingRight="@dimen/BarActionLayout_padding_right"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:orientation="horizontal">
+	                
+		        <Button 
+		            android:text="@string/label_ok"
+	                android:id="@+id/buttonOk"
+	                android:background="@drawable/button_ok_style"
+	                style="@style/buttonTextStyle"
 	                android:layout_gravity="center"
 	                android:layout_width="150dip"
 	                android:layout_height="wrap_content">
-	        </Button>
-        </LinearLayout>
-    </ScrollView>
-
-    <LinearLayout android:id="@+id/barActions"
-                  style="@android:style/ButtonBar"
-                  android:layout_width="fill_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_alignParentBottom="true"
-                  android:paddingTop="5dp"
-                  android:paddingBottom="5dp"
-                  android:paddingLeft="10dp"
-                  android:paddingRight="10dp"
-                  android:gravity="center"
-                  android:orientation="horizontal">
-        <Button android:text="@string/label_ok"
-                android:id="@+id/buttonOk"
-                android:layout_gravity="center"
-                android:layout_width="150dip"
-                android:layout_height="wrap_content">
-        </Button>
-        <Button android:text="@string/label_cancel"
-                android:id="@+id/buttonCancel"
-                android:layout_gravity="center"
-                android:layout_width="150dip"
-                android:layout_height="wrap_content">
-        </Button>
-    </LinearLayout>
-
+		        </Button>
+	        
+		        <Button
+		            android:text="@string/label_cancel"
+	                android:id="@+id/buttonCancel"
+	                android:background="@drawable/button_cancel_style"
+	                style="@style/buttonTextStyle"
+	                android:layout_gravity="center"
+	                android:layout_width="150dip"
+	                android:layout_height="wrap_content">
+		        </Button>
+	    </LinearLayout>
+    	<LinearLayout
+		    android:id="@+id/adsContainer"
+		    android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+		    android:orientation="vertical">
+		</LinearLayout>
+	</LinearLayout>
+    
 </RelativeLayout>

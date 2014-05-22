@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources  xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
+<!-- Application -->
+
     <string name="app_name">How many sleeps</string>
-    <string name="widget_titre"></string>
-    <string name="widget_count">35</string>
-    <string name="widget_unite">sleeps</string>
-    <string name="widget_before">before holydays!</string>
+    <string name="widget_titre">There are</string>
+    <string name="widget_count">135</string>
+    <string name="widget_unite">sleeps before</string>
+    <string name="widget_before">holidays!</string>
     <string name="desc_background">How many sleeps ?</string>
 	<string name="title_activity_config">Event \'s settings</string>
 	<string name="label_ok">OK</string>
 	<string name="pref_event_name_hint">Event\'s name&#8230;</string>
 	<string name="label_cancel">Cancel</string>
     <string name="share_with">Share with</string>
-    <string name="share_text">%1$s : %2$o sleeps remaining !</string>
+    <string name="share_text">%1$s : %2$d sleeps remaining !</string>
     <string name="no_name">no_name</string>
     
+<!-- Configuration -->    
+    <string name="share_button_title">Share</string>
+    <string name="theme_prompt">Choose a theme</string>
+ 	
+<!-- Theme dynamisation -->
+    <string-array name="theme_code_arrays">
+        <item>fond</item>
+        <item>beach_bg_image</item>
+    </string-array>
+        <string-array name="theme_arrays">
+        <item>No theme</item>
+        <item>Holidays</item>
+    </string-array>
+
 </resources>
 

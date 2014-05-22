@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources  xmlns:tools="http://schemas.android.com/tools" tools:locale="fr">
 
+<!-- Application -->
+
     <string name="app_name">Combien de dodos</string>
     <string name="widget_titre">Il reste</string>
     <string name="widget_count">35</string>
-    <string name="widget_unite">dodos</string>
-    <string name="widget_before">avant les vacances!</string>
+    <string name="widget_unite">dodos avant</string>
+    <string name="widget_before">les vacances!</string>
     <string name="desc_background">Combien de dodos ?</string>
 	<string name="title_activity_config">Paramétrage de l\'événement</string>
 	<string name="label_ok">Valider</string>
 	<string name="pref_event_name_hint">Nom de l\'événement&#8230;</string>
 	<string name="label_cancel">Annuler</string>
     <string name="share_with">Partager</string>
-    <string name="share_text">%1$s : c\'est dans %2$o dodos !</string>
+    <string name="share_text">%1$s : c\'est dans %2$d dodos !</string>
     <string name="no_name">sans_nom</string>
     
+<!-- Configuration -->    
+    <string name="share_button_title">Share</string>
+    <string name="theme_prompt">Choose a theme</string>
+ 	
+<!-- Theme dynamisation -->
+    <string-array name="theme_code_arrays">
+        <item>fond</item>
+        <item>beach_bg_image</item>
+    </string-array>
+        <string-array name="theme_arrays">
+        <item>Aucun</item>
+        <item>Vacances</item>
+    </string-array>
+    
 </resources>
-
