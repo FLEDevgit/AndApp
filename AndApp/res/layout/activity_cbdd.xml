@@ -2,8 +2,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_cbdd_layout"
-    android:layout_width="320dp"
-    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="@drawable/beach_bg_image"
     android:orientation="horizontal"
     android:layout_marginTop="@dimen/activity_margin_top"
@@ -18,55 +18,45 @@
 
 	<LinearLayout
 	    android:id="@+id/textTitre_Layout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_alignParentTop="true" >
+ <LinearLayout
+	    android:id="@+id/textTitre_Layout3"
 	    android:layout_width="wrap_content"
+	    android:orientation="vertical"
 	    android:layout_height="wrap_content">
-
-		    <TextView
-		        android:id="@+id/textTitre"
-		        style="@style/TextStyle.Normal"
-		        android:text="@string/widget_titre"/>
-		    
-	</LinearLayout>
-	 
-	<LinearLayout
-	    android:id="@+id/textCount_Layout"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignTop="@+id/textTitre_Layout"
-	    android:layout_toRightOf="@+id/textTitre_Layout"
-		android:layout_marginLeft="15dp">
-
-	    <TextView
-	        android:id="@+id/textCount"
-	        style="@style/TextStyle.Big"
-	        android:text="@string/widget_count" />
-	</LinearLayout>
-
-	<LinearLayout
-	    android:id="@+id/textUnite_Layout"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignBottom="@id/textCount_Layout"
-	    android:layout_marginLeft="10dp"
-	    android:layout_toRightOf="@+id/textCount_Layout" >
-
-	    <TextView
-	        android:id="@+id/textUnite"
-	        style="@style/TextStyle.Unit"
-	        android:text="@string/widget_unite" />
-	</LinearLayout>
-	
-	<LinearLayout
-	    android:id="@+id/textBefore_Layout"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignLeft="@+id/textUnite_Layout"
-	    android:layout_below="@id/textUnite_Layout" >
-	
 		<TextView
-		    android:id="@+id/textBefore"
+		    android:id="@+id/textTitre"
 		    style="@style/TextStyle.Normal"
-		    android:text="@string/widget_before" />
+		    android:layout_height="wrap_content"
+		    android:text="@string/widget_titre" />
+</LinearLayout>
+		<TextView
+		    android:id="@+id/textCount"
+		    style="@style/TextStyle.Big"
+		    android:text="@string/widget_count" />
+
+	    <LinearLayout
+	    android:id="@+id/textTitre_Layout2"
+	    android:layout_width="wrap_content"
+	    android:orientation="vertical"
+	    android:layout_height="wrap_content">
+				<TextView
+				    style="@style/TextStyle.Normal"/>
+				<TextView
+				    android:id="@+id/textUnite"
+				    style="@style/TextStyle.Unit"
+				    android:layout_width="wrap_content"
+				    android:text="@string/widget_unite" />
+
+				<TextView
+				    android:id="@+id/textBefore"
+				    style="@style/TextStyle.Normal"
+				    android:layout_width="match_parent"
+				    android:text="@string/widget_before" />
+
+		</LinearLayout>
 	</LinearLayout>
 
 </RelativeLayout>
