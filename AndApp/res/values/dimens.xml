@@ -7,22 +7,22 @@
     <dimen name="activity_margin_right">2dp</dimen>
     
     <!-- App padding -->
-    <dimen name="activity_padding_top">4dp</dimen>
-	<dimen name="activity_padding_bottom">10dp</dimen>
-	<dimen name="activity_padding_left">8dp</dimen>
-	<dimen name="activity_padding_right">8dp</dimen>
+<!--     <dimen name="activity_padding_top">0dp</dimen> -->
+<!-- 	<dimen name="activity_padding_bottom">0dp</dimen> -->
+<!-- 	<dimen name="activity_padding_left">0dp</dimen> -->
+<!-- 	<dimen name="activity_padding_right">0dp</dimen> -->
 	
-		<!-- Config / Relative Layout Padding -->
-	<dimen name="ConfigLayout_padding_top">3dp</dimen>
-    <dimen name="ConfigLayout_padding_bottom">3dp</dimen>
-    <dimen name="ConfigLayout_padding_left">3dp</dimen>
-    <dimen name="ConfigLayout_padding_right">3dp</dimen> 
+	<!-- Config / Relative Layout Padding -->
+	<dimen name="ConfigLayout_padding_top">0dp</dimen>
+    <dimen name="ConfigLayout_padding_bottom">0dp</dimen>
+    <dimen name="ConfigLayout_padding_left">0dp</dimen>
+    <dimen name="ConfigLayout_padding_right">0dp</dimen> 
 	
 	<!-- Config / Linear Layout Padding -->
-	<dimen name="BarActionLayout_padding_top">5dp</dimen>
-    <dimen name="BarActionLayout_padding_bottom">5dp</dimen>
-    <dimen name="BarActionLayout_padding_left">10dp</dimen>
-    <dimen name="BarActionLayout_padding_right">10dp</dimen> 
+	<dimen name="BarActionLayout_padding_top">0dp</dimen>
+    <dimen name="BarActionLayout_padding_bottom">0dp</dimen>
+    <dimen name="BarActionLayout_padding_left">0dp</dimen>
+    <dimen name="BarActionLayout_padding_right">0dp</dimen> 
     
     
 

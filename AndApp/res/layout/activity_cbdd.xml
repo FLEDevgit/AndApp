@@ -1,64 +1,73 @@
-<RelativeLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_cbdd_layout"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/beach_bg_image"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_marginTop="@dimen/activity_margin_top"
-    android:layout_marginBottom="@dimen/activity_margin_bottom"
-    android:layout_marginLeft="@dimen/activity_margin_left"
-    android:layout_marginRight="@dimen/activity_margin_right"
+    android:background="@drawable/beach_bg_image"
     android:paddingBottom="@dimen/activity_padding_bottom"
     android:paddingLeft="@dimen/activity_padding_left"
     android:paddingRight="@dimen/activity_padding_right"
     android:paddingTop="@dimen/activity_padding_top"
     tools:context="fr.flmsg.widgetsleep.WidgetSetup$PlaceholderFragment" >
 
-	<LinearLayout
-	    android:id="@+id/textTitre_Layout"
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    android:layout_alignParentTop="true" >
- <LinearLayout
-	    android:id="@+id/textTitre_Layout3"
-	    android:layout_width="wrap_content"
-	    android:orientation="vertical"
-	    android:layout_height="wrap_content">
-		<TextView
-		    android:id="@+id/textTitre"
-		    style="@style/TextStyle.Normal"
-		    android:layout_height="wrap_content"
-		    android:text="@string/widget_titre" />
-</LinearLayout>
-		<TextView
-		    android:id="@+id/textCount"
-		    style="@style/TextStyle.Big"
-		    android:text="@string/widget_count" />
+<!--     Removed du bloc supérieur -->
+<!--     android:layout_marginBottom="@dimen/activity_margin_bottom" -->
+<!--     android:layout_marginLeft="@dimen/activity_margin_left" -->
+<!--     android:layout_marginRight="@dimen/activity_margin_right" -->
+<!--     android:layout_marginTop="@dimen/activity_margin_top" -->
+  
+    <LinearLayout
+        android:id="@+id/textTitre_Layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        >
 
-	    <LinearLayout
-	    android:id="@+id/textTitre_Layout2"
-	    android:layout_width="wrap_content"
-	    android:orientation="vertical"
-	    android:layout_height="wrap_content">
-				<TextView
-				    style="@style/TextStyle.Normal"/>
-				<TextView
-				    android:id="@+id/textUnite"
-				    style="@style/TextStyle.Unit"
-				    android:layout_width="wrap_content"
-				    android:text="@string/widget_unite" />
+        <LinearLayout
+            android:id="@+id/textTitre_Layout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-				<TextView
-				    android:id="@+id/textBefore"
-				    style="@style/TextStyle.Normal"
-				    android:layout_width="match_parent"
-				    android:text="@string/widget_before" />
+            <TextView
+                android:id="@+id/textTitre"
+                style="@style/TextStyle.Normal"
+                android:layout_height="wrap_content"
+                android:text="@string/widget_titre" 
+                android:textColor="@style/TextStyle.Normal"/>
 
-		</LinearLayout>
-	</LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textCount"
+            style="@style/TextStyle.Big"
+            android:text="@string/widget_count"
+            android:textColor="@style/TextStyle.Normal" />
+
+        <LinearLayout
+            android:id="@+id/textTitre_Layout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView style="@style/TextStyle.Normal" />
+
+            <TextView
+                android:id="@+id/textUnite"
+                style="@style/TextStyle.Unit"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:text="@string/widget_unite"
+                android:textColor="@style/TextStyle.Normal" />
+
+            <TextView
+                android:id="@+id/textBefore"
+                style="@style/TextStyle.Normal"
+                android:layout_width="match_parent"
+                android:text="@string/widget_before" 
+                android:textColor="@style/TextStyle.Normal"/>
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>
-
-
