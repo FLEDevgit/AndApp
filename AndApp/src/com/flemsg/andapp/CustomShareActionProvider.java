@@ -23,7 +23,8 @@ package com.flemsg.andapp;
 	import android.content.pm.ResolveInfo;
 	import android.graphics.drawable.Drawable;
 	import android.support.v4.view.ActionProvider;
-	/*import android.support.v7.appcompat.R;*/
+	import android.widget.ShareActionProvider;
+	import android.support.v7.appcompat.R;
 	import android.support.v7.internal.widget.ActivityChooserModel;
 	import android.support.v7.internal.widget.ActivityChooserView;
 	import android.util.TypedValue;

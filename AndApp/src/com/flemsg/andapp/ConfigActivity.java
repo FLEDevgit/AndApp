@@ -98,7 +98,7 @@ public class ConfigActivity extends ActionBarActivity{
 		getMenuInflater().inflate(R.menu.action_bar_share_menu, menu);
 
 		//		updateShareIntent();
-		MenuItem item = menu.findItem(R.id.menu_item_share);
+		MenuItem item = menu.findItem(R.id.action_settings);
 
 		final CustomShareActionProvider myShareActionProvider = (CustomShareActionProvider)MenuItemCompat.getActionProvider(item);
 
